@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <link th:href="@{/css/main.css}" rel="stylesheet" />
+</head>
+
+<body>
+<nav id="main-nav" class="navbar navbar-expand navbar-dark bg-primary">
+    <a class="navbar-brand" href="/"><i class="fa fa-puzzle-piece pr-2" style="color:#cd5c5c" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+    <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+            <a class="nav-link" href="/">ЭЦП</a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link" href="/order_list_fb" title="Обратные талоны">Перевод заочно-очно(ФБ)</a>
+        </li>
+
+    </ul>
+    <ul class="navbar-nav ml-auto">
+    </ul>
+</nav>
+<div style="margin: 50px">
+    <div class="row">
+        <div style="width:60%">
+            <div class="row">
+
+                <div class="table">
+                    <div class="row table-striped">
+                        <table class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
+                            <thead>
+                            <tr>
+                                <th scope="col">Снилс</th>
+                                <th scope="col th-sm">ФИО</th>
+                                <th scope="col th-sm">Тип перевода</th>
+                                <th scope="col th-sm">Признан</th>
+                                <th scope="col th-sm">Комментарий</th>
+                                <th scope="col th-sm">Дата</th>
+                                <th scope="col th-sm">Указания гражданином (его законным или уполномоченным представителем) соответствующего предпочтения в заявлении о проведении медико-социальной экспертизы или в заявлении об обжаловании решения бюро (главного бюро)</th>
+                                <th scope="col th-sm">Невозможности удостовериться в полноте и достоверности сведений, содержащихся в представленных документах</th>
+                                <th scope="col th-sm">Выявления несоответствий между данными исследований и заключениями специалистов, направляющих гражданина на медико-социальную экспертизу, о степени выраженности стойких нарушений функций организма, обусловленных заболеваниями, последствиями травм и дефектами</th>
+                                <th scope="col th-sm">Необходимости обследования гражданина с применением специального диагностического оборудования, специальных медико-социальных экспертных методик и технологий для уточнения структуры и степени выраженности ограничений жизнедеятельности, функциональных нарушений, реабилитационного потенциала</th>
+                                <th scope="col th-sm">Если целью медико-социальной экспертизы гражданина, ранее признанного инвалидом, является разработка индивидуальной программы реабилитации или абилитации инвалида (ребенка-инвалида), за исключением случаев необходимости изменения персональных данных инвалида (ребенка-инвалида) и устранения технических ошибок (описок, опечаток, грамматических или арифметических ошибок либо подобных ошибок)</th>
+                                <th scope="col th-sm">Если гражданин является получателем социальных услуг в организации социального обслуживания, оказывающей социальные услуги в стационарной форме социального обслуживания</th>
+                                <th scope="col th-sm">ip</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+
+                            <tr  th:each="s:${model}">
+                                <td th:text="${s.snils}"></td>
+                                <td th:text="${s.fio}"></td>
+                                <td th:switch="${s.order}">
+                                    <p th:case="2">
+                                        Очно в заочно
+                                    </p>
+                                    <p th:case="1">
+                                        Заочно в очно
+                                    </p>
+                                </td>
+                                <td th:text="${s.group}"></td>
+                                <td th:text="${s.text}"></td>
+                                <td th:text="${s.date}"></td>
+
+                                <td th:switch="${s.check1}">
+                                    <p th:case="2">
+                                        ✔
+                                    </p>
+                                    <p th:case="1">
+                                        ✖
+                                    </p>
+                                </td>
+
+                                <td th:switch="${s.check2}">
+                                    <p th:case="2">
+                                        ✔
+                                    </p>
+                                    <p th:case="1">
+                                        ✖
+                                    </p>
+                                </td>
+                                <td th:switch="${s.check3}">
+                                    <p th:case="2">
+                                        ✔
+                                    </p>
+                                    <p th:case="1">
+                                        ✖
+                                    </p>
+                                </td>
+                                <td th:switch="${s.check4}">
+                                    <p th:case="2">
+                                        ✔
+                                    </p>
+                                    <p th:case="1">
+                                        ✖
+                                    </p>
+                                </td>
+                                <td th:switch="${s.check5}">
+                                    <p th:case="2">
+                                        ✔
+                                    </p>
+                                    <p th:case="1">
+                                        ✖
+                                    </p>
+                                </td>
+                                <td th:switch="${s.check6}">
+                                    <p th:case="2">
+                                        ✔
+                                    </p>
+                                    <p th:case="1">
+                                        ✖
+                                    </p>
+                                </td>
+                                <td th:text="${s.ip}"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-2 col-md-12 table">
+                    <table class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-2 col-md-1"></div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script type="text/javascript" th:src="@{/webjars/jquery/js/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/main.js}"></script>
+</body>
+
+
+
+
+</html>

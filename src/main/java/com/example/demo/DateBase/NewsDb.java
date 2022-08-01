@@ -25,6 +25,7 @@ public class NewsDb {
 
             while (resultSet.next()) {
                 result.add(new NewsModel(
+
                                 resultSet.getInt("id"),
                                 resultSet.getString("date"),
                                 resultSet.getString("text"),

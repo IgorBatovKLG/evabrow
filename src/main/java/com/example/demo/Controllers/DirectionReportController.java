@@ -45,20 +45,21 @@ public class DirectionReportController {
                                  @RequestParam(name = "tipDir", required = false, defaultValue = "") String tipDir,
                                  @RequestParam(name = "sogl", required = false, defaultValue = "") String sogl,
                                  @RequestParam(name = "text", required = false, defaultValue = "") String text,
-                                 Model model,
                                  HttpServletRequest httpServletRequest){
 
         DirectionApprovReport directionApprovReport = new DirectionApprovReport();
-        Runnable Signature = new Runnable() {
+        Runnable Direction = new Runnable() {
             @Override
             public void run() {
+                System.out.println(123);
                 boolean b = true;
                 while (b) {
                     b = directionApprovReport.InsertApprov(LastName, FirstName, SecondName, Snils, Buro, RegNumber, Org, OgrnOrg, tipDir, sogl, text, httpServletRequest.getRemoteAddr());
                 }
             }
         };
-        Signature.run();
+        Thread myThready = new Thread(Direction);
+        myThready.start();
         return "reportDirection_good";
     }
 

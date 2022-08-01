@@ -1,6 +1,10 @@
 /*
 Credit: http://www.templatemo.com
 */
+.Absolute-Center{
+width: 100%;
+text-align: center;
+}
 
 body {
 	margin: 0px;

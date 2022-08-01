@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
-    <link th:href="@{/css/main.css}" rel="stylesheet" />
+    <link href="http://localhost:81/main.css" rel="stylesheet" />
     <script src="http://localhost:81/jquery.min.js"></script>
     <script src="http://localhost:81/jquery.maskedinput.min.js"></script>
 </head>
@@ -17,7 +17,10 @@
                     <a class="nav-link" href="/report/index" >Главная</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link active" href="/report/report_order" >Перевод заочно-очно</a>
+                    <a class="nav-link" href="/report/report_order" >Перевод заочно-очно</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link active" href="/direction/index" >Перевод заочно-очно</a>
                 </li>
 
             </ul>
@@ -33,25 +36,25 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-sm-5"></div>
-        <div class="col-sm-2">Все прошло успешно!</div>
-        <div class="col-sm-5"></div>
-        <div class="col-sm-4"></div>
-        <div class="col-sm-4">информация о согласии успешно загружена!</div>
-        <div class="col-sm-4"></div>
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6"><h1 class="text-center">Все прошло успешно! </h1></div>
+        <div class="col-sm-3"></div>
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8"><h2 class="text-center">информация о согласии успешно загружена! </h2></div>
+        <div class="col-sm-2"></div>
     </div>
     <div class="row">
-        <div class="col-sm-4"></div>
-        <div class="col-sm-4">Для загрузки следующего нажмите кнопку ниже</div>
-        <div class="col-sm-4"></div>
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8"><h3 class="text-center"> Для загрузки следующего нажмите кнопку ниже </h3></div>
+        <div class="col-sm-2"></div>
     </div>
     <div class="row">
-        <div class="col-sm-4"></div>
-        <div class="col-sm-4">
-            <a href="/report/report_order" >
-                <button class="btn btn-primary">Вернуться назад</button>
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <a href="/report/report_order" class="text-center">
+                <button class="Absolute-Center btn btn-primary">Вернуться назад</button>
             </a></div>
-        <div class="col-sm-4"></div>
+        <div class="col-sm-2"></div>
     </div>
 </div>
 

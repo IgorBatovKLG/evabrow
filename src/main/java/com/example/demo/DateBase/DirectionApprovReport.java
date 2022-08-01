@@ -24,7 +24,7 @@ public class DirectionApprovReport {
 
         Connection connection = DBConnectionReportDirection.connection;
 
-        try (PreparedStatement statement = connection.prepareStatement("INSERT INTO ReportDirection VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)")) {
+        try (PreparedStatement statement = connection.prepareStatement("INSERT INTO ReportDirection VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)")) {
             statement.setString(2, LastName);
             statement.setString(3, FirstName);
             statement.setString(4, SecondName);
@@ -41,6 +41,12 @@ public class DirectionApprovReport {
 
             statement.executeUpdate();
         } catch (SQLException throwables) {
+            throwables.printStackTrace();
+            try {
+                Thread.sleep(1000*5);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             return true;
         }
         return false;

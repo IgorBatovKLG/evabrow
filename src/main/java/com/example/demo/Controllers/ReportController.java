@@ -41,6 +41,7 @@ public class ReportController {
                                        @RequestParam(name = "check4", required = false, defaultValue = "") String check4,
                                        @RequestParam(name = "check5", required = false, defaultValue = "") String check5,
                                        @RequestParam(name = "check6", required = false, defaultValue = "") String check6,
+                                       @RequestParam(name = "check7", required = false, defaultValue = "") String check7,
                                        HttpServletRequest httpServletRequest,
             Model model){
         ReportFbOrder reportFbOrder = new ReportFbOrder();
@@ -53,7 +54,7 @@ public class ReportController {
             } catch (InterruptedException e) {
                 System.out.println("Не могу отправить информацию о Очно-Заочно в базу, (database is locked)");
             }
-            ifSqlException = reportFbOrder.createPalliativeInDb(snils, fio, buro, order, group, text, check1, check2, check3, check4, check5, check6, now.format(formatter).toString(), httpServletRequest.getRemoteAddr());
+            ifSqlException = reportFbOrder.createPalliativeInDb(snils, fio, buro, order, group, text, check1, check2, check3, check4, check5, check6, check7, now.format(formatter).toString(), httpServletRequest.getRemoteAddr());
         }
         model.addAttribute("snils" , snils);
         model.addAttribute("fio" , fio);
@@ -84,6 +85,7 @@ public class ReportController {
             @RequestParam(name = "check4", required = false, defaultValue = "") String check4,
             @RequestParam(name = "check5", required = false, defaultValue = "") String check5,
             @RequestParam(name = "check6", required = false, defaultValue = "") String check6,
+            @RequestParam(name = "check7", required = false, defaultValue = "") String check7,
             @RequestParam(name = "dateStart", required = false, defaultValue = "") String dateStart,
             @RequestParam(name = "dateAnd", required = false, defaultValue = "") String dateAnd,
             HttpServletRequest httpServletRequest,
@@ -91,7 +93,7 @@ public class ReportController {
     ){
 
         ReportFbOrderList reportFbOrderList = new ReportFbOrderList();
-        List<ReportFbOrderModel> reportFbOrderModels = reportFbOrderList.SelectListReport(dateStart, dateAnd, buro, order, group, check1, check2, check3, check4, check5, check6);
+        List<ReportFbOrderModel> reportFbOrderModels = reportFbOrderList.SelectListReport(dateStart, dateAnd, buro, order, group, check1, check2, check3, check4, check5, check6, check7);
         model.addAttribute("model",reportFbOrderModels);
         int i = reportFbOrderList.selectCountCheck(dateStart, dateAnd, "1");
         int i1 = reportFbOrderList.selectCountCheck(dateStart, dateAnd, "2");
@@ -120,6 +122,7 @@ public class ReportController {
             @RequestParam(name = "check4", required = false, defaultValue = "") String check4,
             @RequestParam(name = "check5", required = false, defaultValue = "") String check5,
             @RequestParam(name = "check6", required = false, defaultValue = "") String check6,
+            @RequestParam(name = "check7", required = false, defaultValue = "") String check7,
             @RequestParam(name = "dateStart", required = false, defaultValue = "") String dateStart,
             @RequestParam(name = "dateAnd", required = false, defaultValue = "") String dateAnd,
             HttpServletRequest httpServletRequest,
@@ -127,7 +130,7 @@ public class ReportController {
     ){
 
         ReportFbOrderList reportFbOrderList = new ReportFbOrderList();
-        List<ReportFbOrderModel> reportFbOrderModels = reportFbOrderList.SelectListReport(dateStart, dateAnd, buro, order, group, check1, check2, check3, check4, check5, check6);
+        List<ReportFbOrderModel> reportFbOrderModels = reportFbOrderList.SelectListReport(dateStart, dateAnd, buro, order, group, check1, check2, check3, check4, check5, check6, check7);
         model.addAttribute("model",reportFbOrderModels);
         int i = reportFbOrderList.selectCountCheck(dateStart, dateAnd, "1");
         int i1 = reportFbOrderList.selectCountCheck(dateStart, dateAnd, "2");

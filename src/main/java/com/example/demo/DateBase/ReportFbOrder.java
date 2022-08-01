@@ -19,12 +19,13 @@ public class ReportFbOrder {
                                      String check4,
                                      String check5,
                                      String check6,
+                                     String check7,
                                      String date,
                                      String ip) {
 
         Connection connection = DBConnection.connection;
 
-        try (PreparedStatement statement = connection.prepareStatement("INSERT INTO reportFbOrder VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)")) {
+        try (PreparedStatement statement = connection.prepareStatement("INSERT INTO reportFbOrder VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)")) {
             statement.setString(1, snils);
             statement.setString(2, fio);
             statement.setString(3, buro);
@@ -40,6 +41,7 @@ public class ReportFbOrder {
             statement.setString(13, date);
             statement.setString(15, ip);
             statement.setString(16, "false");
+            statement.setString(17, check7);
             statement.executeUpdate();
         } catch (SQLException throwables) {
             return true;

@@ -3,6 +3,8 @@
 <head>
     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
     <link th:href="@{/css/main.css}" rel="stylesheet" />
+    <script src="http://10.40.99.10:81/jquery.min.js"></script>
+    <script src="http://10.40.99.10:81/jquery.maskedinput.min.js"></script>
 </head>
 
 <body>
@@ -39,8 +41,15 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="col">
-                                <td><h1>СНИЛС указываеться в формате 111-111-111 11</h1></td>
-                                <input class="form-control form-control-lg" type="text" name="snils" id="snils" placeholder="СНИЛС">
+                                <td><h1>СНИЛС</h1></td>
+                                <input class="snils form-control form-control-lg" type="text" name="snils" id="snils" placeholder="СНИЛС">
+
+
+
+
+                                <script>
+$('.snils').mask('999-999-999 99');
+</script>
                             </div>
                         </div>
                     </div>
@@ -199,7 +208,9 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
+
                     <div class="row" style="margin: 20px">
                         <div class="col-sm-2">
                             <div class="col">
@@ -213,6 +224,24 @@
                             <div class="col">
                                 <div>
                                     <div>Если гражданин является получателем социальных услуг в организации социального обслуживания, оказывающей социальные услуги в стационарной форме социального обслуживания
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin: 20px">
+                        <div class="col-sm-2">
+                            <div class="col">
+                                <select class="custom-select custom-select-lg mb-3" name="check6" id="check7">
+                                    <option  value="1">Нет</option>
+                                    <option  value="2">Да</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-10">
+                            <div class="col">
+                                <div>
+                                    <div>ПРП, УПТ
                                     </div>
                                 </div>
                             </div>
@@ -264,9 +293,8 @@
 
 
 
-<script type="text/javascript" th:src="@{/webjars/jquery/js/jquery.min.js}"></script>
-<script th:src="@{/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js}"></script>
-<script type="text/javascript" th:src="@{/js/main.js}"></script>
+
+
 </body>
 
 

@@ -22,7 +22,8 @@ public class ReportFbOrderList {
                                                      String check3,
                                                      String check4,
                                                      String check5,
-                                                     String check6
+                                                     String check6,
+                                                     String check7
     ) {
         Connection connection = DBConnection.connection;
         List<ReportFbOrderModel> result = new ArrayList<>();
@@ -37,6 +38,7 @@ public class ReportFbOrderList {
         boolean check4_blank = check4.replaceAll("\\s+", "").isBlank();
         boolean check5_blank = check5.replaceAll("\\s+", "").isBlank();
         boolean check6_blank = check6.replaceAll("\\s+", "").isBlank();
+        boolean check7_blank = check7.replaceAll("\\s+", "").isBlank();
 
         String dateStartWhere = "";
         String dateAndWhere = "";
@@ -49,6 +51,7 @@ public class ReportFbOrderList {
         String check4Where = "";
         String check5Where = "";
         String check6Where = "";
+        String check7Where = "";
 
         if(!dateStart_blank){
             dateStartWhere = " and date > '"+dateStart+"'";
@@ -83,7 +86,9 @@ public class ReportFbOrderList {
         if(!check6_blank){
             check6Where = " and check6 = '"+check6+"'";
         }
-
+        if(!check7_blank){
+            check7Where = " and check6 = '"+check6+"'";
+        }
 
 
         try (PreparedStatement statement = connection.prepareStatement("select * from reportFborder WHERE deleted = 'false' " +
@@ -97,7 +102,8 @@ public class ReportFbOrderList {
                 check3Where +
                 check4Where +
                 check5Where +
-                check6Where )) {
+                check6Where +
+                check7Where )) {
 
 
             ResultSet resultSet = statement.executeQuery();
@@ -138,7 +144,8 @@ public class ReportFbOrderList {
                                 resultSet.getString("date"),
                                 resultSet.getString("id"),
                                 resultSet.getString("ip"),
-                                resultSet.getString("deleted")
+                                resultSet.getString("deleted"),
+                                resultSet.getString("check7")
 
                         )
                 );
@@ -165,7 +172,7 @@ public class ReportFbOrderList {
         int count = 0;
         try {
             PreparedStatement pstmt;
-            pstmt = connection.prepareStatement("SELECT count(*) from reportFborder WHERE deleted = 'false' and check"+id+" = '2'" + dateStartWhere + dateAndWhere);
+            pstmt = connection.prepareStatement("SELECT count(*) from reportFborder WHERE deleted = 'false' and check7 != '2' and check"+id+" = '2'" + dateStartWhere + dateAndWhere);
             ResultSet resultSet = pstmt.executeQuery();
             while (resultSet.next())
                 count = resultSet.getInt(1);
@@ -193,7 +200,7 @@ public class ReportFbOrderList {
         int count = 0;
         try {
             PreparedStatement pstmt;
-            pstmt = connection.prepareStatement("SELECT count(*) from reportFborder WHERE deleted = 'false' and order1 = '1'" + dateStartWhere + dateAndWhere);
+            pstmt = connection.prepareStatement("SELECT count(*) from reportFborder WHERE deleted = 'false' and order1 = '1' and check7 != '2'" + dateStartWhere + dateAndWhere);
             ResultSet resultSet = pstmt.executeQuery();
             while (resultSet.next())
                 count = resultSet.getInt(1);

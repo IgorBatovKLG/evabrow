@@ -18,25 +18,7 @@ public class ReportFbOrderModel {
     private String id;
     private String ip;
     private String delete;
-
-    public ReportFbOrderModel(String snils, String fio, String buro, String order, String group, String text, String check1, String check2, String check3, String check4, String check5, String check6, String date, String id, String ip, String delete) {
-        this.snils = snils;
-        this.fio = fio;
-        this.buro = buro;
-        this.order = order;
-        this.group = group;
-        this.text = text;
-        this.check1 = check1;
-        this.check2 = check2;
-        this.check3 = check3;
-        this.check4 = check4;
-        this.check5 = check5;
-        this.check6 = check6;
-        this.date = date;
-        this.id = id;
-        this.ip = ip;
-        this.delete = delete;
-    }
+    private String check7;
 
     public String getSnils() {
         return snils;
@@ -164,5 +146,33 @@ public class ReportFbOrderModel {
 
     public void setDelete(String delete) {
         this.delete = delete;
+    }
+
+    public String getCheck7() {
+        return check7;
+    }
+
+    public void setCheck7(String check7) {
+        this.check7 = check7;
+    }
+
+    public ReportFbOrderModel(String snils, String fio, String buro, String order, String group, String text, String check1, String check2, String check3, String check4, String check5, String check6, String date, String id, String ip, String delete, String check7) {
+        this.snils = snils;
+        this.fio = fio;
+        this.buro = buro;
+        this.order = order;
+        this.group = group;
+        this.text = text;
+        this.check1 = check1;
+        this.check2 = check2;
+        this.check3 = check3;
+        this.check4 = check4;
+        this.check5 = check5;
+        this.check6 = check6;
+        this.date = date;
+        this.id = id;
+        this.ip = ip;
+        this.delete = delete;
+        this.check7 = check7;
     }
 }

@@ -83,6 +83,7 @@
                                 <th scope="col th-sm">9</th>
                                 <th scope="col th-sm">10</th>
                                 <th scope="col th-sm">ip</th>
+                                <th scope="col th-sm">ПРП,УПТ</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -153,6 +154,14 @@
                                     </p>
                                 </td>
                                 <td th:text="${s.ip}"></td>
+                                <td th:switch="${s.check7}">
+                                    <p th:case="2">
+                                        ✔
+                                    </p>
+                                    <p th:case="1">
+                                        ✖
+                                    </p>
+                                </td>
                             </tr>
                             </tbody>
                         </table>

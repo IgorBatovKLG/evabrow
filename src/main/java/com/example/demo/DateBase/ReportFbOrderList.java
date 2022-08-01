@@ -108,24 +108,7 @@ public class ReportFbOrderList {
 
             ResultSet resultSet = statement.executeQuery();
 
-            /**
-             private String snils;
-             private String fio;
-             private String buro;
-             private String order1;
-             private String group;
-             private String text;
-             private String check1;
-             private String check2;
-             private String check3;
-             private String check4;
-             private String check5;
-             private String check6;
-             private String date;
-             private String id;
-             private String ip;
-             private String delete;
-             */
+
 
             while (resultSet.next()) {
                 result.add(new ReportFbOrderModel(

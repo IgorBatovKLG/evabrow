@@ -1,7 +1,6 @@
 package com.example.demo.DateBase;
 
 import com.example.demo.Configuration.DBConnection;
-import com.example.demo.Models.ReportFbOrderModel;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,7 +9,7 @@ import java.sql.SQLException;
 import java.util.HashMap;
 
 
-public class Direction {
+public class GetCookies {
 
     public HashMap<String, String> getCookies(){
         HashMap<String, String> cookies = new HashMap<>();

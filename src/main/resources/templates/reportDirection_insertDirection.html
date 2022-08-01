@@ -80,39 +80,50 @@
             <div class="row">
                 <div class="col-sm-3">ОГРН организации</div>
                 <div class="col-sm-9">
-                <input class="form-control form-control-lg" th:value="${model.getReferralOrganizationOGRN()}" name="OgrnOrg" readonly="">
+                    <input class="form-control form-control-lg" th:value="${model.getReferralOrganizationOGRN()}" name="OgrnOrg" readonly="">
 
                 </div>
             </div>
 
             <div class="row">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="col">
-                                <td><h1>СНИЛС</h1></td>
-                                <input class="snils form-control form-control-lg" type="text" name="snils" id="snils" placeholder="СНИЛС">
-
-
-
-
-                                <script>
-                                    $('.snils').mask('999-999-999 99');
-                                </script>
-                            </div>
-                        </div>
+                <div class="col-sm-12">
+                    <div class="col">
+                        <td>Номер бюро</td>
+                        <select class="custom-select custom-select-lg mb-3" name="tipDir">
+                            <option  value="1">Электронное</option>
+                            <option  value="2">Бумажное</option>
+                        </select>
                     </div>
-
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="col">
-                                <button class="btn btn-primary" style="margin: 20px">Отправить</button>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="col">
+                        <td>Согласие</td>
+                        <select class="custom-select custom-select-lg mb-3" name="sogl">
+                            <option  value="1">Указано в тексте направления</option>
+                            <option  value="2">Указано в приложении к направлению</option>
+                            <option  value="3">Другое (Указать ниже)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="col">
+                        <input class="form-control form-control-lg" type="text" name="text" id="text" placeholder="Как полученно согласие">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="col">
+                        <button class="btn btn-primary" style="margin: 20px">Отправить</button>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </form>
 </div>

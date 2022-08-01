@@ -22,7 +22,7 @@ public class DirectionReportController {
         //TODO ИЗМЕНИТЬ ИП ДЛЯ ЛОКАЛЬНЫХ JS
         return "reportDirection_index";
     }
-    @GetMapping("direction/insert_direction")
+    @GetMapping("/direction/insert_direction")
     public String Direction_insert(@RequestParam(name = "snils", required = false, defaultValue = "") String snils,
                                    Model model){
         GetEva getEva = new GetEva();

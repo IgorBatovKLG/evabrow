@@ -35,9 +35,9 @@
     <form action="http://10.40.99.10/direction/insert_direction" method="get">
 
         <div class="container" style="margin: 10px">
-            <input th:placeholder="${model.getLastName()}">
-            <input th:placeholder="${model.getFirstName()}">
-            <input th:placeholder="${model.getSecondName()}">
+            <input th:placeholder="${model.getLastName()}" th:value="${model.getLastName()}">
+            <input th:placeholder="${model.getFirstName()}" th:value="${model.getFirstName()}">
+            <input th:placeholder="${model.getSecondName()}"th:value="${model.getSecondName()}">
 
             <div class="row">
                 <div class="container">

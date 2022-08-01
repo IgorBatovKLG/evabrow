@@ -35,10 +35,13 @@
     <form action="http://10.40.99.10/direction/insert_direction" method="get">
 
         <div class="container" style="margin: 10px">
-            <input th:placeholder="${model.getLastName()}" th:value="${model.getLastName()}" name="LastName" readonly="">
-            <input th:placeholder="${model.getFirstName()}" th:value="${model.getFirstName()}" name="FirstName" readonly="">
-            <input th:placeholder="${model.getSecondName()}"th:value="${model.getSecondName()}" name="SecondName" readonly="">
-            <input th:placeholder="${model.getSecondName()}"th:value="${model}" name="SecondName" readonly="">
+            <input class="form-control form-control-lg" th:value="${model.getLastName()}" name="LastName" readonly="">
+            <input class="form-control form-control-lg" th:value="${model.getFirstName()}" name="FirstName" readonly="">
+            <input class="form-control form-control-lg" th:value="${model.getSecondName()}" name="SecondName" readonly="">
+            <input class="form-control form-control-lg" th:value="${model.getExamBuroName()}" name="Buro" readonly="">
+            <input class="form-control form-control-lg" th:value="${model.getRequestRegNumber()}" name="RegNumber" readonly="">
+            <input class="form-control form-control-lg" th:value="${model.getReferralOrganizationComment()}" name="Org" readonly="">
+            <input class="form-control form-control-lg" th:value="${model.getReferralOrganizationOGRN()}" name="OgrnOrg" readonly="">
 
             <div class="row">
                 <div class="container">

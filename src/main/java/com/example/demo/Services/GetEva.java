@@ -27,7 +27,7 @@ public class GetEva {
 
             ArrayList keyCookies = new ArrayList(cookies.keySet());
             String Cookie = keyCookies.get(0) +"="+ cookies.get(keyCookies.get(0)) +"; "+ keyCookies.get(1) +"="+ cookies.get(keyCookies.get(1));
-            System.out.println(Cookie);
+
             HttpRequest request  = HttpRequest.newBuilder().uri(new URI("http://dbs/eva/Search/SearchData"))
                     .setHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0")
                     .header("Content-Type","application/json; charset=utf-8")

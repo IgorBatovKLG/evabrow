@@ -1,24 +1,25 @@
 package com.example.demo.Models;
 
-import java.util.ArrayList;
+
+import java.util.List;
 
 public class EvaReportModelList {
 
-    private ArrayList<EvaReportModel> List;
+    private List<EvaReportModel> List;
     private int Total;
     private String CacheId;
 
-    public EvaReportModelList(ArrayList<EvaReportModel> list, int total, String cacheId) {
-        List = list;
-        Total = total;
-        CacheId = cacheId;
+    public EvaReportModelList(java.util.List<EvaReportModel> list, int total, String cacheId) {
+        this.List = list;
+        this.Total = total;
+        this.CacheId = cacheId;
     }
 
-    public ArrayList<EvaReportModel> getList() {
+    public java.util.List<EvaReportModel> getList() {
         return List;
     }
 
-    public void setList(ArrayList<EvaReportModel> list) {
+    public void setList(java.util.List<EvaReportModel> list) {
         List = list;
     }
 

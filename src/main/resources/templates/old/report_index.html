@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+<head>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <link th:href="@{/css/main.css}" rel="stylesheet" />
+</head>
+
+<body>
+<nav id="main-nav" class="navbar navbar-expand navbar-dark bg-primary">
+    <a class="navbar-brand" href="/"><i class="fa fa-puzzle-piece pr-2" style="color:#cd5c5c" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+    <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link active" href="/report/index" >Главная</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="/report/report_order" >Перевод заочно-очно</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="/direction/index" >Способ получения согласия</a>
+                </li>
+
+            </ul>
+        </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+    </ul>
+</nav>
+<div class="content">
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+
+            <div>
+                <div th:each="s:${name}">
+                    <div class="post_section"><span class="bottom"></span>
+
+
+                        <h2 th:text="${s.headline}"></h2>
+
+                        <strong th:text="${s.date}"></strong>
+
+
+                        <p th:text="${s.text}"><big></big></p>
+
+                        <td th:switch="${s.hrefBool}">
+                            <p th:case="1">
+
+                            </p>
+                            <p th:case="2">
+
+                        <a th:href="${s.href}">
+                            <button class="btn btn-primary">Открыть</button>
+                        </a>
+
+                            </p>
+                        </td>
+                    </div>
+                </div>
+                <div class="clr"></div>
+            </div>
+        </div>
+        <div class="col-sm-2">
+
+
+        </div>
+    </div>
+</div>
+<div class="clr"></div>
+
+
+
+
+
+
+
+
+
+</body>
+
+
+
+
+</html>

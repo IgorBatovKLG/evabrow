@@ -17,10 +17,11 @@ import java.time.LocalDateTime;
 public class DirectionReportController {
 
     @GetMapping("/direction/index")
-    public String Direction_index(HttpServletRequest httpServletRequest){
+    public String Direction_index(HttpServletRequest httpServletRequest, Model model){
         System.out.println(httpServletRequest.getRemoteAddr() + " direction_report " + LocalDateTime.now().toString());
 
-        //TODO ИЗМЕНИТЬ ИП ДЛЯ ЛОКАЛЬНЫХ JS
+
+        model.addAttribute("text", "");
         return "reportDirection_index";
     }
     @GetMapping("/direction/insert_direction")
@@ -28,10 +29,22 @@ public class DirectionReportController {
                                    Model model){
         GetEva getEva = new GetEva();
         EvaReportModelList evaModel = getEva.getEvaModel(snils);
-        EvaReportModel evaReportModel = evaModel.getList().get(0);
+        if (snils.length()>8){
+            if (evaModel.getTotal()!=0) {
+                System.out.println(evaModel.getTotal());
+                EvaReportModel evaReportModel = evaModel.getList().get(0);
 
-        model.addAttribute("model",evaReportModel);
-        return "reportDirection_insertDirection";
+                model.addAttribute("model", evaReportModel);
+                return "reportDirection_insertDirection";
+            }
+            else {
+                model.addAttribute("text", "Направление с таким снилс не найдено");
+                return "reportDirection_index";
+            }
+        } else {
+            model.addAttribute("text", "Некорректный СНИЛС");
+            return "reportDirection_index";
+        }
     }
     @GetMapping("/direction/indert_good")
     public String Direction_Good(@RequestParam(name = "LastName", required = false, defaultValue = "") String LastName,

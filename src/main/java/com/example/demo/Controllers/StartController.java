@@ -56,4 +56,11 @@ public class StartController {
         model.addAttribute("name",newsModels);
     return "report_index";
     }
+
+    @GetMapping("test")
+    public String test(Model model){
+
+        return "test";
+    }
+
 }

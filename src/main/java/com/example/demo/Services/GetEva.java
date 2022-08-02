@@ -10,6 +10,8 @@ import java.net.URISyntaxException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -18,8 +20,11 @@ public class GetEva {
     public EvaReportModelList getEvaModel(String Snils){
         Gson builder = new Gson();
         EvaReportModelList evaReportModelList = null;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String start = LocalDate.now().minusDays(7).format(formatter).toString();
+        String and = LocalDate.now().plusDays(7).format(formatter).toString();
         try {
-            String json = "{\"Columns\":[\"ExamBuroName\",\"LastName\",\"FirstName\",\"SecondName\",\"SNILS\",\"ReferralOrganizationComment\",\"ReferralOrganizationOGRN\",\"RequestRegNumber\"],\"Conditions\":[{\"FieldName\":\"ExamTime\",\"Type\":9,\"IsNegative\":false,\"Disabled\":false,\"Value\":null,\"Values\":[\"2022-08-01T00:00:00\",\"2022-08-07T00:00:00\"]},{\"FieldName\":\"BaseDocTypeId\",\"Type\":11,\"IsNegative\":false,\"Disabled\":false,\"Value\":null,\"Values\":[9]},{\"FieldName\":\"ExamBuroId\",\"Type\":11,\"IsNegative\":false,\"Disabled\":false,\"Value\":null,\"Values\":[1001700,1001693,1001684,1001685,1001687,1001688,1001690,1001683,1001692,1001694,1001697,1001699,1001686,1001689,1001691,1329,1001700,1001693,1001695,1001684,1001685,1001687,1001688,1001690,1001683,1001692,1001694,1001697,1001699,1001701,1001686,1001689,1001691,1001696,1001698,1001696]},{\"FieldName\":\"SNILS\",\"Type\":8,\"IsNegative\":false,\"Disabled\":false,\"Value\":\""+Snils+"\",\"Values\":null}],\"HidePeopleDoubles\":false,\"Page\":1,\"PageSize\":100,\"SortField\":null,\"IsSortDesc\":false,\"CacheId\":\"c4a30711-b1c4-4aef-bbb6-38e22405abfd\",\"InvalidateCache\":true}";
+            String json = "{\"Columns\":[\"ExamBuroName\",\"LastName\",\"FirstName\",\"SecondName\",\"SNILS\",\"ReferralOrganizationComment\",\"ReferralOrganizationOGRN\",\"RequestRegNumber\"],\"Conditions\":[{\"FieldName\":\"ExamTime\",\"Type\":9,\"IsNegative\":false,\"Disabled\":false,\"Value\":null,\"Values\":[\""+start+"T00:00:00\",\""+and+"T00:00:00\"]},{\"FieldName\":\"BaseDocTypeId\",\"Type\":11,\"IsNegative\":false,\"Disabled\":false,\"Value\":null,\"Values\":[9]},{\"FieldName\":\"ExamBuroId\",\"Type\":11,\"IsNegative\":false,\"Disabled\":false,\"Value\":null,\"Values\":[1001700,1001693,1001684,1001685,1001687,1001688,1001690,1001683,1001692,1001694,1001697,1001699,1001686,1001689,1001691,1329,1001700,1001693,1001695,1001684,1001685,1001687,1001688,1001690,1001683,1001692,1001694,1001697,1001699,1001701,1001686,1001689,1001691,1001696,1001698,1001696]},{\"FieldName\":\"SNILS\",\"Type\":8,\"IsNegative\":false,\"Disabled\":false,\"Value\":\""+Snils+"\",\"Values\":null}],\"HidePeopleDoubles\":false,\"Page\":1,\"PageSize\":100,\"SortField\":null,\"IsSortDesc\":false,\"CacheId\":\"f024e789-151e-42cc-87ab-ff1be0191fa6\",\"InvalidateCache\":true}";
 
             HttpClient client = HttpClient.newHttpClient();
             GetCookies getCookies = new GetCookies();

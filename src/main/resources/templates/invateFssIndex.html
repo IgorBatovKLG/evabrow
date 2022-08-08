@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <link th:href="@{/css/test.css}" rel="stylesheet" />
+    <script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/jquery.maskedinput.min.js}"></script>
+</head>
+
+<body>
+<div id="mainWrapper" class="wrapper ">
+    <div id="mainMessages">
+    </div>
+    <div id="logo" class="flex">
+        <span class="flex-fill"><i class="fa fa-wheelchair"></i>Сервис МСЭ</span>
+
+    </div>
+    <!-- Sidebar -->
+    <nav id="sidebar" style="flex-direction: column; display:flex" th:insert="navbar :: copy"></nav>
+    <nav id="content-nav" class="navbar navbar-expand-lg navbar-light bg-light">
+
+    </nav>
+    <div id="main-toolbar">
+
+    </div>
+    <div id="main">
+        <div class="container">
+            <form action="http://10.40.99.10/fss/get" method="get">
+
+                <div class="container" style="margin: 10px">
+
+                    <div class="row">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="col">
+                                        <td><h1>СНИЛС</h1></td>
+                                        <input class="snils form-control form-control-lg" type="text" name="snils" id="snils" placeholder="СНИЛС">
+
+
+
+
+                                        <script>
+$('.snils').mask('999-999-999 99');
+</script>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="col">
+                                        <td><h1>Фамилия имя отчество</h1></td>
+                                        <input class="form-control form-control-lg" type="text" name="fio" id="fio" placeholder="ФИО">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="col">
+                                        <td><h1>Номер бюро</h1></td>
+                                        <select class="custom-select custom-select-lg mb-3" name="buro" id="buro">
+                                            <option  value="201">Бюро медико-социальной экспертизы №1</option>
+                                            <option  value="202">Бюро медико-социальной экспертизы №2</option>
+                                            <option  value="203">Бюро медико-социальной экспертизы №3</option>
+                                            <option  value="204">Бюро медико-социальной экспертизы №4</option>
+                                            <option  value="205">Бюро медико-социальной экспертизы №5</option>
+                                            <option  value="206">Бюро медико-социальной экспертизы №6</option>
+                                            <option  value="207">Бюро медико-социальной экспертизы №7</option>
+                                            <option  value="208">Бюро медико-социальной экспертизы №8</option>
+                                            <option  value="209">Бюро медико-социальной экспертизы №9</option>
+                                            <option  value="210">Бюро медико-социальной экспертизы №10</option>
+                                            <option  value="211">Бюро медико-социальной экспертизы №11</option>
+                                            <option  value="212">Бюро медико-социальной экспертизы №12</option>
+                                            <option  value="213">Бюро медико-социальной экспертизы №13</option>
+                                            <option  value="215">Бюро медико-социальной экспертизы №15</option>
+                                            <option  value="217">Бюро медико-социальной экспертизы №17</option>
+                                            <option  value="218">Бюро медико-социальной экспертизы №18</option>
+                                            <option  value="219">Бюро медико-социальной экспертизы №19</option>
+                                            <option  value="301">Экспертный состав №1</option>
+                                            <option  value="302">Экспертный состав №2</option>
+                                            <option  value="303">Экспертный состав №3</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="col">
+                                        <td><h1>Дата</h1></td>
+                                        <input name="date" id="date" class="app-datepicker form-control app-date" type="date"/>
+                                        <td><h1>Время</h1></td>
+                                        <input type="time" name="time" class="form-control" step="1" max="23:59:59" style="width: 150px">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="col">
+                                    <button class="btn btn-primary" style="margin: 20px">Отправить</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="statusBar"><span id="statusMsg"></span></div>
+</div>
+</body>
+
+</html>

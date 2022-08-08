@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <link th:href="@{/css/test.css}" rel="stylesheet" />
+    <script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/jquery.maskedinput.min.js}"></script>
+</head>
+
+<body>
+<div id="mainWrapper" class="wrapper ">
+    <div id="mainMessages">
+    </div>
+    <div id="logo" class="flex">
+        <span class="flex-fill"><i class="fa fa-wheelchair"></i>Сервис МСЭ</span>
+
+    </div>
+    <!-- Sidebar -->
+    <nav id="sidebar" style="flex-direction: column; display:flex" th:insert="navbar :: copy"></nav>
+    <nav id="content-nav" class="navbar navbar-expand-lg navbar-light bg-light">
+
+    </nav>
+    <div id="main-toolbar">
+
+    </div>
+    <div id="main">
+        <div class="container">
+
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-3"></div>
+                        <div class="col-sm-6"><h1 class="text-center">Все прошло успешно! </h1></div>
+                        <div class="col-sm-3"></div>
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-8"><h2 class="text-center">информация о согласии успешно загружена! </h2></div>
+                        <div class="col-sm-2"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-8"><h3 class="text-center"> Для загрузки следующего нажмите кнопку ниже </h3></div>
+                        <div class="col-sm-2"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-8">
+                            <a href="/fss/index" class="text-center">
+                                <button class="Absolute-Center btn btn-primary">Вернуться назад</button>
+                            </a></div>
+                        <div class="col-sm-2"></div>
+                    </div>
+                </div>
+
+        </div>
+    </div>
+    <div id="statusBar"><span id="statusMsg"></span></div>
+</div>
+</body>
+
+</html>

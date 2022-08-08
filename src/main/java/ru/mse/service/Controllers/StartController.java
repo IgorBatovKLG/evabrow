@@ -20,16 +20,10 @@ public class StartController {
     @GetMapping("/")
     public String start(){
 
-        return "pass";
+        return "report_index";
     }
 
-    @GetMapping("/index")
-    public String index(@RequestParam(name = "text", required = false, defaultValue = "") String text, Model model){
-        if (text.equals("123")){
-            return "index";
-        }
-        return "indexbat";
-    }
+
 
 
 

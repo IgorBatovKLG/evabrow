@@ -5,11 +5,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import ru.mse.service.DTO.TimeExpertiseDTO;
-import ru.mse.service.DateBase.TimeExpertiseDB;
+import ru.mse.service.Models.ReportLoad.DateBase.TimeExpertiseDB;
 import ru.mse.service.Models.TimeExpertiseModel;
 import ru.mse.service.Services.DTOServiceTimeExpertise;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 @Controller
 public class TimeExpertiseController {
@@ -26,6 +27,7 @@ public class TimeExpertiseController {
         for (TimeExpertiseModel m:models){
             list.add(dtoServiceTimeExpertise.toDTO(m));
         }
+        list.sort(Comparator.comparing(TimeExpertiseDTO::getTimeExpertise));
         model.addAttribute("model", list);
         model.addAttribute("LastTime", "Последнее обновление таблицы " + lastTime);
         return "timeExpertise_index";

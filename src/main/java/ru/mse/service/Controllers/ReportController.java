@@ -1,7 +1,7 @@
 package ru.mse.service.Controllers;
 
-import ru.mse.service.DateBase.ReportFbOrder;
-import ru.mse.service.DateBase.ReportFbOrderList;
+import ru.mse.service.Models.ReportLoad.DateBase.ReportFbOrder;
+import ru.mse.service.Models.ReportLoad.DateBase.ReportFbOrderList;
 import ru.mse.service.Models.ReportFbOrderModel;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,7 +22,7 @@ import java.util.List;
 public class ReportController {
 
 
-    @GetMapping("/report/report_order")
+    @GetMapping("/report/report_order1")
     public String reportFbOrderMse(HttpServletRequest httpServletRequest){
         System.out.println(httpServletRequest.getRemoteAddr());
         return "reportFbOrder";
@@ -63,12 +63,12 @@ public class ReportController {
         return "reportFbOrderGood";
     }
 
-    @GetMapping("order_list_fb")
+    @GetMapping("/order_list_fb")
     public String ListReportFbOrder(){
 
         return "reportFbOrderList";
     }
-    @GetMapping("order_list_fbH")
+    @GetMapping("/order_list_fbH")
     public String ListReportFbOrderH(){
 
         return "reportFbOrderListH";
@@ -95,15 +95,11 @@ public class ReportController {
         ReportFbOrderList reportFbOrderList = new ReportFbOrderList();
         List<ReportFbOrderModel> reportFbOrderModels = reportFbOrderList.SelectListReport(dateStart, dateAnd, buro, order, group, check1, check2, check3, check4, check5, check6, check7);
         model.addAttribute("model",reportFbOrderModels);
-        int i = reportFbOrderList.selectCountCheck(dateStart, dateAnd, "1");
-        int i1 = reportFbOrderList.selectCountCheck(dateStart, dateAnd, "2");
-        int i2 = reportFbOrderList.selectCountCheck(dateStart, dateAnd, "3");
-        int i3 = reportFbOrderList.selectCountCheck(dateStart, dateAnd, "4");
-        int i4 = reportFbOrderList.selectCountCheck(dateStart, dateAnd, "5");
-        int i5 = reportFbOrderList.selectCountCheck(dateStart, dateAnd, "6");
-        int i6 = reportFbOrderList.selectCountorder(dateStart, dateAnd);
-        model.addAttribute("i",i);
-        model.addAttribute("i1",i1);
+        int i2 = reportFbOrderList.selectCountCheck(dateStart, dateAnd, "2");
+        int i3 = reportFbOrderList.selectCountCheck(dateStart, dateAnd, "3"); //
+        int i4 = reportFbOrderList.selectCountCheck(dateStart, dateAnd, "4");
+        int i5 = reportFbOrderList.selectCountCheck(dateStart, dateAnd, "5");
+        int i6 = reportFbOrderList.selectCountCheck(dateStart, dateAnd, "6");
         model.addAttribute("i2",i2);
         model.addAttribute("i3",i3);
         model.addAttribute("i4",i4);

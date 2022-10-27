@@ -1,12 +1,19 @@
-package ru.mse.service.DateBase;
+package ru.mse.service.Models.ReportLoad.DateBase;
 
 import ru.mse.service.Configuration.DBConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.Random;
 
 public class ReportFbOrder {
+
+    private int Random(){
+        int i = new Random().nextInt(15);
+        return i + 15;
+    }
+
     public boolean createPalliativeInDb(String snils,
                                      String fio,
                                      String buro,
@@ -44,6 +51,13 @@ public class ReportFbOrder {
             statement.setString(17, check7);
             statement.executeUpdate();
         } catch (SQLException throwables) {
+            System.out.println(Thread.currentThread().getStackTrace()[1].getMethodName() +
+                    " База занята");
+            try {
+                Thread.sleep(1000*Random());
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             return true;
         }
         return false;

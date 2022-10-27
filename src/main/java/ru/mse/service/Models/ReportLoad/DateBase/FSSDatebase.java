@@ -1,4 +1,4 @@
-package ru.mse.service.DateBase;
+package ru.mse.service.Models.ReportLoad.DateBase;
 
 import ru.mse.service.Configuration.DBConnection;
 import ru.mse.service.Configuration.DBConnectionFSS;
@@ -6,8 +6,15 @@ import ru.mse.service.Configuration.DBConnectionFSS;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.Random;
 
 public class FSSDatebase {
+
+    private int Random(){
+        int i = new Random().nextInt(15);
+        return i + 15;
+    }
+
     public boolean createInvateInDB(String snils,
                                         String date,
                                         String time,
@@ -28,9 +35,14 @@ public class FSSDatebase {
 
 
             statement.executeUpdate();
-            System.out.println(1);
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            System.out.println(Thread.currentThread().getStackTrace()[1].getMethodName() +
+                    " База занята");
+            try {
+                Thread.sleep(1000*Random());
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             return true;
         }
         return false;

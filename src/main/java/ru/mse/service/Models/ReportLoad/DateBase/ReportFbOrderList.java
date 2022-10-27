@@ -1,4 +1,4 @@
-package ru.mse.service.DateBase;
+package ru.mse.service.Models.ReportLoad.DateBase;
 
 import ru.mse.service.Configuration.DBConnection;
 import ru.mse.service.Models.ReportFbOrderModel;

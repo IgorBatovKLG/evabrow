@@ -6,12 +6,18 @@ import ru.mse.service.Models.TimeExpertiseModel;
 public class DTOServiceTimeExpertise {
 
     public TimeExpertiseDTO toDTO(TimeExpertiseModel model){
-        return new TimeExpertiseDTO("http://dbs/eva/Exam/GetItem/" + model.getId(),
-                model.getLastName() + " " + model.getFirstName() + " " + model.getSecondName(),
-                model.getSNILS(),
-                model.getExamBuroName(),
-                model.getArrivedDateTime(),
-                model.getStartedDateTime(),
-                (int) model.getTimeExp());
+
+        return TimeExpertiseDTO.builder()
+                .id("http://dbs/eva/Exam/GetItem/" + model.getId())
+                .name(model.getLastName() + " " + model.getFirstName() + " " + model.getSecondName())
+                .SNILS(model.getSNILS())
+                .buro(model.getExamBuroName())
+                .dateStart(model.getArrivedDateTime())
+                .dateAnd(model.getStartedDateTime())
+                .MetaStateName(model.getMetaStateName())
+                .timeExpertise((int) model.getTimeExp())
+                .build();
+
+
     }
 }
